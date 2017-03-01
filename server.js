@@ -123,7 +123,7 @@ slapp.match((msg) => {
               msg.say({ text: 'Welcome to slack' })
             }   
       })
-    }
+    })
   })
   return true
 })
