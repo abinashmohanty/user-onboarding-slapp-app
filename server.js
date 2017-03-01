@@ -112,9 +112,11 @@ slapp.match((msg) => {
   isChannel('general', msg, (err, yes) => {
     if (err) return console.log('Error looking for general channel', err)
     if (yes) {
-       
-        slapp.message('direct_message',(msg)=> {
-          slapp.client.im.open({token,user:msg.meta.user_id},(err,data){
+   
+        slapp.message('direct_message',(msg)=>{
+          slapp.client.im.open({
+            token: msg.meta.bot_token,
+            user:msg.body.event.user},(err,data)=>{
             if(err){
               return console.log(err);
             }else {
