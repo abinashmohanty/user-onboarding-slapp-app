@@ -105,6 +105,28 @@ slapp.message('attachment', ['mention', 'direct_message'], (msg) => {
   })
 })
 
+slapp.match((msg) => {
+  if (!msg.isMessage() || msg.body.event.subtype !== 'channel_join') {
+    return false
+  }
+  isChannel('general', msg, (err, yes) => {
+    if (err) return console.log('Error looking for general channel', err)
+    if (yes) {
+       
+        slapp.message('direct_message',(msg)=>{
+          slapp.client.im.open({token,user:${msg.meta.user_id}},(err,data){
+            if(err){
+              return console.log(err);
+            }else {
+              msg.say({ text: ` Welcome to slack` })
+            }   
+      })
+    }
+  })
+  return true
+})
+
+
 // Catch-all for any other responses not handled above
 slapp.message('.*', ['direct_mention', 'direct_message'], (msg) => {
   // respond only 40% of the time
