@@ -114,7 +114,7 @@ slapp.match((msg) => {
     if (yes) {
        
         slapp.message('direct_message',(msg)=>{
-          slapp.client.im.open({token,user:${msg.meta.user_id}},(err,data){
+          slapp.client.im.open({token,user:{msg.meta.user_id}},(err,data){
             if(err){
               return console.log(err);
             }else {
