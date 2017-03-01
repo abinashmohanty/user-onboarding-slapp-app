@@ -113,12 +113,12 @@ slapp.match((msg) => {
     if (err) return console.log('Error looking for general channel', err)
     if (yes) {
        
-        slapp.message('direct_message',(msg)=>{
-          slapp.client.im.open({token,user:{msg.meta.user_id}},(err,data){
+        slapp.message('direct_message',(msg)=> {
+          slapp.client.im.open({token,user:msg.meta.user_id},(err,data){
             if(err){
               return console.log(err);
             }else {
-              msg.say({ text: ` Welcome to slack` })
+              msg.say({ text: 'Welcome to slack' })
             }   
       })
     }
