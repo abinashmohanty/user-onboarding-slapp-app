@@ -112,7 +112,7 @@ slapp.match((msg) => {
   isChannel('general', msg, (err, yes) => {
     if (err) return console.log('Error looking for general channel', err)
     if (yes) {
-    
+   
         slapp.message('direct_message',(msg)=>{
           slapp.client.im.open({
             token: msg.meta.bot_token,
@@ -120,7 +120,7 @@ slapp.match((msg) => {
             if(err){
               return console.log(err);
             }else {
-              msg.say({ text: ` Welcome to slack` })
+              msg.say({ text: 'Welcome to slack' })
             }   
       })
     }
